@@ -1,4 +1,4 @@
-# bakery_site_server
+# bakery_site_project
 Bread Day 빵집을 대상으로 웹사이트 및 서버 구축
 
 ### 백엔드: Python, Django
