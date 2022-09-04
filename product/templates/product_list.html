@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block style_contents %}
+<style>
+  .navbar h1 a{
+      color: darkblue;
+      border-bottom: solid;
+      padding-left: 10px;
+      text-decoration: none;
+  }
+  .carousel-item img{
+      height: 500px;
+  }
+  
+  .footer h2{
+      padding-bottom: 20px;
+      border-bottom: solid;
+  }
+  .dropdown-menu{
+      width: 200px;
+  }
+  .bread-card{
+      width: 10%;
+  
+  }
+  .card img{
+      height: 180px;
+  }
+  a svg{
+      color: black;
+  }
+  .menu-types{
+      padding-top: 80px;
+  }
+</style>
+{% endblock %}
+
+{% block contents %}
+<div class="container-fluid mt-5 mb-2 text-center">
+  <br>
+   <h1>Products</h1>
+   <div class="row">
+       <div class="col-12">
+        <div class="card card-body">
+          <h3 class="menu-types">Baguette</h3>
+          <div class="row">
+          {% for baguette in baguettes %}
+          <div class="col-sm-6 col-md-3 mt-4">
+            <div class="card">
+              <img class="card-img-top" src="/media/{{ baguette.image }}" alt="Card image cap">
+              <h6 class="card-title">{{ baguette.bread_feature }}</h6>
+              <a href="#" class="text-right mr-2 mb-2"></a>
+            </div>
+          </div>
+          {% endfor %}
+          </div>
+
+          <h3 class="menu-types">Bagel</h3>
+          <div class="row">
+          {% for bagel in bagels %}
+          <div class="col-sm-6 col-md-3 mt-4">
+            <div class="card">
+              <img class="card-img-top" src="/media/{{ bagel.image }}" alt="Card image cap">
+              <h6 class="card-title">{{ bagel.bread_feature }}</h6>
+              <a href="#" class="text-right mr-2 mb-2"></a>
+            </div>
+          </div>
+          {% endfor %}
+          </div>
+              
+          <h3 class="menu-types">Muffin</h3>
+          <div class="row">
+          {% for muffin in muffins %}
+          <div class="col-sm-6 col-md-3 mt-4">
+            <div class="card">
+              <img class="card-img-top" src="/media/{{ muffin.image }}" alt="Card image cap">
+              <h6 class="card-title">{{ muffin.bread_feature }}</h6>
+              <a href="#" class="text-right mr-2 mb-2"></a>
+            </div>
+          </div>
+          {% endfor %}
+          </div>
+
+
+          <h3 class="menu-types">Croissant</h3>
+          <div class="row">
+          {% for croissant in croissants %}
+          <div class="col-sm-6 col-md-3 mt-4">
+            <div class="card">
+              <img class="card-img-top" src="/media/{{ croissant.image }}" alt="Card image cap">
+              <h6 class="card-title">{{ croissant.bread_feature }}</h6>
+              <a href="#" class="text-right mr-2 mb-2"></a>
+            </div>
+          </div>
+          {% endfor %}
+          </div>
+          
+          </div>
+        </div>
+       </div>
+       <!-- <div class="col-8">
+          <div class="collapse show mt-3" id="collapseExample1">
+
+           <div class="collapse show mt-5" id="collapseExample2">
+
+           </div>
+           <div class="collapse" id="collapseExample3">
+             
+           </div>
+           <div class="collapse" id="collapseExample4">
+             <h3>Croissant</h3>
+             <div class="card card-body">
+               <div class="row">
+                   <div class="col-sm-6 col-md-3">
+                      <div class="card">
+                       <img class="card-img-top" src="./img/croissant_original.jpg" alt="Card image cap">
+                       <h6 class="card-title">Original</h6>
+                     </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3">
+                     <div class="card">
+                       <img class="card-img-top" src="./img/croissant_sandwich.jpg" alt="Card image cap">
+                       <h6 class="card-title">Sandwich</h6>
+                     </div>
+                    </div>
+
+
+                    <div class="col-sm-6 col-md-3">
+                     <div class="card">
+                       <img class="card-img-top" src="./img/croissant_choco.jpg" alt="Card image cap">
+
+                         <h6 class="card-title">Chocolate</h6>
+
+                     </div>
+                    </div>
+               </div>
+             </div>
+           </div>
+           
+           
+       </div> -->
+   </div>
+</div>
+
+<br>
+<br>
+{% endblock %}

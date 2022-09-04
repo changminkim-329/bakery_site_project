@@ -1,0 +1,126 @@
+
+{% extends "base.html" %}
+{% block style_contents %}
+  <style>
+    .imshow{
+        background-image: url("/static/images/bakery_img/bakery01.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 600px;
+        height:600px;
+        background-attachment: fixed;
+    }
+    .imshow h1{
+        color: aliceblue;
+        padding-top: 300px;
+        
+        text-align: center;
+        font-size: 100px;
+    }
+    .imshow p{
+        color: aliceblue;
+        text-align: center;
+        font-size: 30px;
+        
+    }
+    .navbar h1 a{
+        color: darkblue;
+        border-bottom: solid;
+        padding-left: 10px;
+        text-decoration: none;
+    }
+    .carousel-item img{
+        height: 500px;
+    }
+    
+    .footer h2{
+        padding-bottom: 20px;
+        border-bottom: solid;
+    }
+    .dropdown-menu{
+        width: 200px;
+    }
+
+  </style>
+{% endblock %}
+{% block contents %}
+  <div class="container-fluid imshow">
+    <div class="row">
+          <div class="col-12">
+              <div class="my-5">
+                  <h1>Bread Day</h1>
+                  <p>Welcome to Bakery</p>
+              </div>
+          </div> 
+    </div>
+    
+  </div>
+
+  <div class="container">
+    <div class="mt-5 mb-3 text-center">
+      <h3>MENU</h3>
+    </div>
+    
+    <div id="carouselExampleCaptions" class="carousel slide mb-5" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/static/images/product/baguette.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Baguette</h5>
+            <p>이탈리아 최고급 밀로 보다 단백한 맛을 가진 바게트</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="/static/images/product/croissant.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Croissant</h5>
+            <p>손수 만든 버터로 만들 크림한 크로와상</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="/static/images/product/muffin.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Muffin</h5>
+            <p>최고의 셰프들이 만든 혁신적인 머핀</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="text-center">
+        <a href="/order" class="btn btn-outline-secondary" role="button" aria-pressed="true">Order Online</a>
+    </div>
+    <br>
+    <br><br><br>
+    <div class="row d-flex align-items-center">
+        <div class="col-lg-6 ">
+            <h2>About</h2>
+            <h2>Our Bakery</h2>
+            <p>브데드 데이는 2012년 4월 5일 동탄 목동에서 시작으로 매일매일 고객님께 맛있고 건강한 빵을 전달하기 위해 최선을 다 하고 있습니다. 건강한 먹거리가 우리들의 몸에 건강한 에너지를 만듭니다. 브데드 데이의 전 임직원은 고객님의 건강한 라이프 스타일을 위해서 노력을 아끼지 않겠습니다.</p>
+            <div>
+                <a href="/about/staff" class="btn btn-outline-secondary mb-3" role="button" aria-pressed="true">
+                Read More</a>
+            </div>
+        </div>
+        <div class="col-lg-6 baker_image">
+            <img src="/static/images/staff/head.jpg" class="img-fluid" alt="">
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+      
+  </div>
+{% endblock %}

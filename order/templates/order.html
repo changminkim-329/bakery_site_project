@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+
+{% block style_contents %}
+<style>
+  .navbar h1 a{
+      color: darkblue;
+      border-bottom: solid;
+      padding-left: 10px;
+      text-decoration: none;
+  }
+  .carousel-item img{
+      height: 500px;
+  }
+  
+  .footer h2{
+      padding-bottom: 20px;
+      border-bottom: solid;
+  }
+  .dropdown-menu{
+      width: 200px;
+  }
+  .bread-card{
+      width: 10%;
+  
+  }
+  .card img{
+      height: 180px;
+  }
+  a svg{
+      color: black;
+  }
+  
+  .card button{
+      text-align: right;
+      background-color: transparent;
+      border-color: transparent;
+      outline: 0;
+  }
+  .order ~p{
+      min-width: 280px;
+  }
+  
+</style>
+<!--jQuery-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+{% endblock %}
+
+{% block contents %}
+<div class="container-fluid mt-5 mb-2">
+  <h1 class="text-center">Order Online</h1>
+  <div class="row mt-5">
+      <div class="col-md-3 mt-3">
+          <div>
+              <h1 class="order mt-3 text-center">My Order</h1>
+              <div class="purchase-list">
+                
+              </div>
+          </div>
+          <div class="text-center">
+              <div class="dropdown">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Menu
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#collapseExample1" data-toggle="collapse">Baguette</a>
+                  <a class="dropdown-item" href="#collapseExample2" data-toggle="collapse">Bagel</a>
+                  <a class="dropdown-item" href="#collapseExample3" data-toggle="collapse">Muffin</a>
+                  <a class="dropdown-item" href="#collapseExample4" data-toggle="collapse">Croissant</a>
+                </div>
+                <button class="btn btn-outline-secondary order-button">주문</button>
+              </div>
+          </div>
+         
+      </div>
+
+
+      <div class="col-md-9 text-center">
+         <div class="collapse show mt-3" id="collapseExample1">
+           <h3 class="menu_list">Baguette</h3>
+           <div class="card card-body">
+            <div class="row">
+              {% for baguette in baguettes %}
+              <div class="col-sm-6 col-md-3">
+                <div class="card">
+                  <img class="card-img-top" src="/media/{{ baguette.image }}" alt="Card image cap">
+                  <h6 class="card-title">{{ baguette.bread_feature }}</h6>
+                  <button class="text-right mr-2 mb-2">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
+                          <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                          <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+                          <path fill-rule="evenodd" d="M7.5 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-2z"/>
+                        </svg>
+                    </button>
+                </div>
+              </div>
+              {% endfor %} 
+            </div>
+           </div>
+          </div>
+
+          <div class="collapse mt-5" id="collapseExample2">
+           <h3>Bagel</h3>
+            <div class="card card-body">
+              <div class="row">
+                {% for bagel in bagels %}
+                <div class="col-sm-6 col-md-3">
+                  <div class="card">
+                   <img class="card-img-top" src="/media/{{ bagel.image }}" alt="Card image cap">
+                   <h6 class="card-title">{{ bagel.bread_feature }}</h6>
+                   <button class="text-right mr-2 mb-2 ">
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
+                        <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                        <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M7.5 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-2z"/>
+                      </svg>
+                   </button>
+                 </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse mt-5" id="collapseExample3">
+            <h3>Muffin</h3>
+            <div class="card card-body">
+              <div class="row">
+                {% for muffin in muffins %}
+                <div class="col-sm-6 col-md-3">
+                  <div class="card">
+                   <img class="card-img-top" src="/media/{{ muffin.image }}" alt="Card image cap">
+                   <h6 class="card-title">{{ muffin.bread_feature }}</h6>
+                   <button href="#" class="text-right mr-2 mb-2">
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
+                        <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                        <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M7.5 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-2z"/>
+                      </svg>
+                   </button>
+                 </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse mt-5" id="collapseExample4">
+            <h3>Croissant</h3>
+            <div class="card card-body">
+              <div class="row">
+                {% for croissant in croissants %}
+                <div class="col-sm-6 col-md-3">
+                  <div class="card">
+                   <img class="card-img-top" src="/media/{{ croissant.image }}" alt="Card image cap">
+                   <h6 class="card-title">{{ croissant.bread_feature }}</h6>
+                   <button href="#" class="text-right mr-2 mb-2">
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
+                        <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                        <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M7.5 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-2z"/>
+                      </svg>
+                   </button>
+                 </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          
+      </div>
+  </div>
+</div>
+<script src="/static/script/order/order.js"></script>
+{% endblock %}

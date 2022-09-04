@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block style_contents %}
+<style>
+  .navbar h1 a{
+      color: darkblue;
+      border-bottom: solid;
+      padding-left: 10px;
+      text-decoration: none;
+  }
+  .carousel-item img{
+      height: 500px;
+  }
+  
+  .footer h2{
+      padding-bottom: 20px;
+      border-bottom: solid;
+  }
+  .dropdown-menu{
+      width: 200px;
+  }
+</style>
+{% endblock %}
+
+{% block contents %}
+<div class="container">
+  <div class="row">
+      <div class="offset-2 col-8 offset-2">
+         <br>
+          <div class="page-header mt-3 text-center">
+               <h2>회원정보수정</h2>
+           </div>
+           <p class="lead text-center">사용자 정보를 수정합니다.</p>
+           <hr>
+           
+           <!-- 회원 정보 수정 폼 -->
+           <form class="pt-3 md-3" style="max-width: 720px" method="post">
+              {% csrf_token %} 
+               <div class="list-group-item">
+                  <div class="form-group">
+                      <label>이메일</label>
+                      <input type="text" class="form-control" disabled>
+                  </div>
+
+                  <div class="form-group">
+                    <label>이름</label>
+                    <input type="text" class="form-control" name="username" value="{{ username }}"> 
+                  </div>
+
+                  <div class="form-group">
+                      <label>비밀번호</label>
+                      <input type="password" class="form-control" name="password"> 
+                  </div>
+
+                  <div class="form-group">
+                      <label>비밀번호 확인</label>
+                      <input type="password" class="form-control" name="re-password">
+                  </div>
+
+                  <div class="form-row">
+                      <div class="col-6">
+                          <div class="form-group">
+                              <label>연락처</label>
+                              <input type="text" class="form-control" name="contact-number" value="{{ contact_number }}">
+                          </div>
+                      </div>
+                      <div class="col-6">
+                          <div class="form-group">
+                              <label>성별</label>
+                              <select class="form-control" name="gender">
+                                  {% if gender == "M" %}
+                                  <option selected value="M">남성</option>
+                                  <option value="F">여성</option>
+                                  <option value="etc">그 이외</option>
+
+                                  {% elif gender == "F" %}
+                                  <option value="M">남성</option>
+                                  <option selected value="F">여성</option>
+                                  <option value="etc">그 이외</option>
+                                  {% else %}
+
+                                  <option value="M">남성</option>
+                                  <option value="F">여성</option>
+                                  <option selected value="etc">그 이외</option>
+                                  {% endif %}
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+                        
+                  <div class="form-group">
+                      <label >주소</label>
+                      <input type="text" class="form-control" value="{{ address }}" name="address">
+                  </div>
+
+                  <button type="submit" class="btn btn-outline-secondary">수정하기</button>
+               </div>
+
+           </form>
+      </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block style_contents %}
+<style>
+    .image{
+        background-image: url("/static/images/staff/head.jpg");
+        background-repeat: no-repeat;
+        height: 500px;
+        background-size: 100% 600px;
+    }
+    
+    .imshow{
+        background-image: url("/static/images/bakery_img/bakery.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 600px;
+        height:300px;
+        
+    }
+    .imshow h1{
+        color: aliceblue;
+        padding-top: 100px;
+        
+        text-align: center;
+        font-size: 100px;
+    }
+    .imshow p{
+        color: aliceblue;
+        text-align: center;
+        font-size: 30px;
+        
+    }
+    .navbar h1 a{
+        color: darkblue;
+        border-bottom: solid;
+        padding-left: 10px;
+        text-decoration: none;
+    }
+    .carousel-item img{
+        height: 500px;
+    }
+    
+    .footer h2{
+        padding-bottom: 20px;
+        border-bottom: solid;
+    }
+    .dropdown-menu{
+        width: 200px;
+    }
+    
+    .card img{
+        height: 350px;
+        
+        
+    }
+    .custom-btn{
+        background-color: white;
+        border-radius: 8px;
+        padding: 5px;
+        width: 85px;
+        
+        
+    }
+    .modal-body img{
+        height: 250px;
+        width: 200px;
+    }
+    .about_chef{
+        font-family: 'Nanum Myeongjo', serif;
+    }
+    .container-fluid h1, .container h1{
+        font-family: 'Playfair Display', serif;
+    }
+</style>
+{% endblock %}
+
+{% block contents %}
+<div class="container-fluid imshow">
+    <div class="row">
+           <div class="col-12">
+              <div class="">
+                  <h1>About Us</h1>
+              </div>
+           </div> 
+     </div>
+     
+ </div>
+ <br>
+ <br>
+ <div class="container">
+     <div class="text-center">
+         <h1 class="history">Healthy Bakery For Your Life</h1>
+         <br>
+         <p>브레드 데이는 2012년 4월 5일 동탄 목동에서 시작하여 </p>
+         <p>매일매일 고객님께 맛있고 건강한 빵을 전달하기 위해 최선을 다 하고 있습니다.</p>
+
+         <p>건강한 먹거리가 우리들의 몸에 건강한 에너지를 만듭니다.</p>
+         
+     </div>
+     <br>
+     <br>
+     <div class="container text-center">
+         <div class="row"></div>
+         <div class="col-12 mt-5">
+             <h3>HEALTHY</h3>
+             <p>브레드 데이는 건강한 라이프 스타일을 지향 합니다.</p>
+             <p>빠름을 당연시하고 인스턴트 푸드를 권장하는 이 사회에서</p>
+             <p>천연 발효라는 어려운 길을 택했습니다. 유기농 밀가루(일부 품목 제외)를</p>
+
+             <p>사용하여 반죽을 만들고 기다림과 정성이 필요한 빵을 구우면서 </p>
+
+             <p>브레드 데이만의 자부심을 키워가고 있습니다.</p>
+             
+         </div>
+         <div class="col-12 mt-5">
+             <h3>HONEST</h3>
+             <p>
+             <p>여러 경력의 장인 쉐프들이 매일매일 새벽부터 열정과 정성을 쏟아 빵을 굽습니다.</p>
+             <p>정직한 장인정신으로 항상 고객님께 양질의 빵을 제공 하도록</p>
+
+             <p>노력 하고 있습니다</p>
+         </div>
+
+         <div class="col-12 mt-5">
+             <h3>HAPPY</h3>
+             <p>고객님의 행복과 즐거움이 최고의 선물 입니다.</p>
+             <p>고객님들이 맛있고 건강한 빵을 즐기면서</p>
+             <p>행복해질 수 있도록 항상 최선을 다하겠습니다.</p>
+         </div>
+         <div class="col-6"></div>
+         <br>
+         
+     </div>
+ </div>
+{% endblock %}

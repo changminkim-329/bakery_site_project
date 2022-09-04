@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block style_contents %}
+<style>
+  .navbar h1 a{
+      color: darkblue;
+      border-bottom: solid;
+      padding-left: 10px;
+      text-decoration: none;
+  }
+  .carousel-item img{
+      height: 500px;
+  }
+  
+  .footer h2{
+      padding-bottom: 20px;
+      border-bottom: solid;
+  }
+  .dropdown-menu{
+      width: 200px;
+  }
+  .message{
+      height: 150px;
+  }
+  
+</style>
+{% endblock %}
+
+{% block contents %}
+<div class="container">
+  <div class="row ">
+      <div class="col-md-12 col-lg-6">
+         <br>
+           <div class="page-header mt-3 text-center">
+               <h2>Contact Us</h2>
+           </div>
+           <hr>
+           <p>Email: hongil1234@naver.com</p>
+           <p>Tel: 010-1234-5678</p>
+           <div>
+               <form class="pt-3 md-3" method="POST">
+                {% csrf_token %} 
+                <div class="list-group-item contact-group">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" class="form-control" name="usename" value="{{ username }}" disabled>
+                    </div>
+                    <div class="form-group">
+                      <label>Enter Your Email</label>
+                      <input type="text" class="form-control" name="email" value="{{ email }}">
+                    </div>
+                    <div class="form-group">
+                      <label>Enter Your Contact Number</label>
+                      <input type="text" class="form-control" name="contact-number" value="{{ contact_number }}">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                          <label for="exampleFormControlTextarea1">Enter Your Message</label>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="message"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="text-right mr-3">
+                      <button type="submit" class="btn btn-outline-secondary">submit</button>
+                    </div>
+                </div>
+               </form>
+           </div>
+      </div>
+      <div class="col-md-12 col-lg-6 mt-5 d-flex align-items-center justify-content-center">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d71959.32005057635!2d127.15068582948155!3d37.40922368890076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca9e6263c0ec3%3A0x8a53775183ccd8d7!2z67iM66CI65Oc642w7J20!5e0!3m2!1sko!2skr!4v1593600608844!5m2!1sko!2skr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      </div>
+  </div>
+   
+</div>
+{% endblock %}

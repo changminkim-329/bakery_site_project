@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block style_contents %}
+<style>
+  /* .image{
+      {% for staff in staffs %}
+      {% if staff.staff_grade == "Head Chef" %}
+      background-image: url("/static/images/staff/{{ staff.staff_name|lower }}.jpg");
+      background-repeat: no-repeat;
+      height: 500px;
+      background-size: 100% 600px;
+      {% endif %}
+      {% endfor %}
+  } */
+  
+  .imshow{
+      
+      background-image: url("/static/images/bakery_img/bakery.jpg");
+      background-repeat: no-repeat;
+      background-size: 100% 600px;
+      height:300px;
+      
+  }
+  .imshow h1{
+      color: aliceblue;
+      padding-top: 100px;
+      
+      text-align: center;
+      font-size: 80px;
+  }
+  .imshow p{
+      color: rgb(240, 248, 255);
+      text-align: center;
+      font-size: 30px;
+      
+  }
+  .navbar h1 a{
+      color: darkblue;
+      border-bottom: solid;
+      padding-left: 10px;
+      text-decoration: none;
+  }
+  .carousel-item img{
+      height: 500px;
+  }
+  
+  .footer h2{
+      padding-bottom: 20px;
+      border-bottom: solid;
+  }
+  .dropdown-menu{
+      width: 200px;
+  }
+  
+  .card img{
+      height: 350px;
+      
+      
+  }
+  .custom-btn{
+      background-color: white;
+      border-radius: 8px;
+      padding: 5px;
+      width: 85px;
+      outline: 0;
+      
+  }
+  .modal-body img{
+      height: 250px;
+      width: 200px;
+  }
+  .about_chef{
+      font-family: 'Nanum Myeongjo', serif;
+  }
+  .container-fluid h1, .container h1{
+      font-family: 'Playfair Display', serif;
+  }
+</style>
+{% endblock %}
+
+{% block contents %}
+<div class="container-fluid imshow">
+  <div class="row">
+         <div class="col-12">
+            <div class="">
+                <h1>Our Member</h1>
+            </div>
+         </div> 
+   </div>
+   
+</div>
+
+<br>
+
+<br>
+
+<div class="container-fluid imshows mb-5 px-5">
+  {% for staff in staffs %}
+  {% if staff.staff_grade == "Head Chef" %}
+  <div class="row mb-5">
+  <div class="col-sm-6 image" 
+  style="background-image: url('/static/images/staff/{{ staff.staff_name|lower }}.jpg'); 
+  background-repeat: no-repeat; height: 500px; background-size: 100% 600px;">
+  </div> 
+  <div class="col-sm-6">
+    <div class="my-5">
+      <h1 class="text-center">{{ staff.staff_grade }}</h1>
+        <h1 class="mt-5">{{ staff.staff_name }}</h1>
+        <p>{{ staff.staff_decs }}</p>
+    </div>
+  </div> 
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+<br>
+
+<div class="container-fluid pt-5">
+<h1 class="text-center pb-3">Member</h1>
+<div class="row">
+  {% for staff in staffs %}
+  {% if staff.staff_grade != "Head Chef" %}
+  <div class="col-sm-6 col-md-3">
+    <div class="card">
+      <img src="/static/images/staff/{{ staff.staff_name|lower }}.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>{{ staff.staff_name }}</h2>
+        <p>{{ staff.staff_grade }}</p>
+        
+        <button class="b custom-btn" type="button" data-toggle="modal" data-target="#exampleModal{{ forloop.counter }}">View</button>
+      </div>
+      
+   </div>
+  </div>
+  
+  <div class="modal fade" id="exampleModal{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ staff.staff_name }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+                <div class="col-6">
+                    <img src="/static/images/staff/{{ staff.staff_name|lower }}.jpg" class="card-img-top" alt="...">
+                </div>
+                <div class="about_chef col-6">
+                  {{ staff.staff_decs }}
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
